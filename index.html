@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Edukasi PCOS dan Self Love - Versi Final</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #ff69b4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .main-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .main-menu button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 18px;
+            width: 80%;
+            max-width: 400px;
+            transition: background-color 0.3s;
+        }
+        .main-menu button:hover {
+            background-color: #ff1493;
+        }
+        section {
+            margin: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: none;
+        }
+        section.active {
+            display: block;
+        }
+        h2 {
+            color: #ff69b4;
+        }
+        .tabs {
+            display: flex;
+            overflow-x: auto;
+            background-color: #ffc0cb;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .tabs button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .tabs button.active {
+            background-color: #ff1493;
+        }
+        .tab-content {
+            display: none;
+            padding: 10px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .menu-variation button {
+            margin: 5px;
+            padding: 10px;
+        }
+        .menu-content {
+            display: none;
+        }
+        .menu-content.active {
+            display: block;
+        }
+        footer {
+            background-color: #ffc0cb;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aplikasi Edukasi PCOS dan Self Love</h1>
+        <p>Pilih modul untuk memulai!</p>
+    </header>
+    
+    <main>
+        <section id="main-menu" class="active">
+            <h2>Menu Utama</h2>
+            <div class="main-menu">
+                <button onclick="showModule('pengantar')">1. Pengantar</button>
+                <button onclick="showModule('self-love')">2. Fitur SELF LOVE</button>
+                <button onclick="showModule('tracker')">3. Tracker Harian</button>
+                <button onclick="showModule('bmi')">4. Perhitungan BMI</button>
+                <button onclick="showModule('menu-makanan')">5. Contoh Menu Makanan Sehat</button>
+            </div>
+        </section>
+        
+        <section id="pengantar">
+            <h2>Pengantar: Pengertian dan Ciri-ciri PCOS</h2>
+            <p>PCOS adalah sindrom ovarium polikistik, sebuah kondisi hormonal yang memengaruhi wanita. Pengertian: PCOS menyebabkan ketidakseimbangan hormon, mengakibatkan siklus menstruasi tidak teratur. Ciri-ciri: Termasuk jerawat berlebih, rambut tubuh berlebih, obesitas, dan kesulitan hamil.</p>
+            <button onclick="showModule('main-menu')">Kembali ke Menu Utama</button>
+        </section>
+        
+        <section id="self-love">
+            <h2>Fitur SELF LOVE</h2>
+            <p>Jelajahi langkah-langkah pencegahan PCOS dengan aksi yang dapat dilakukan:</p>
+            <div class="tabs">
+                <button onclick="openTab(event, 's')">S</button>
+                <button onclick="openTab(event, 'e1')">E (Eat Clean)</button>
+                <button onclick="openTab(event, 'l1')">L (Live Aktif)</button>
+                <button onclick="openTab(event, 'f')">F</button>
+                <button onclick="openTab(event, 'l2')">L (Listen)</button>
+                <button onclick="openTab(event, 'o')">O</button>
+                <button onclick="openTab(event, 'v')">V</button>
+                <button onclick="openTab(event, 'e2')">E (Energize)</button>
+            </div>
+            <div id="s" class="tab-content active">
+                <h3>S: Sayangi Tubuhmu</h3>
+                <p>Penjelasan: Mencintai dan merawat tubuh Anda. Aksi: Lakukan meditasi harian, kunjungi dokter rutin, hindari diet ekstrem.</p>
+            </div>
+            <div id="e1" class="tab-content">
+                <h3>E: Eat Clean dan Sehat</h3>
+                <p>Penjelasan: Mengonsumsi makanan bersih. Aksi: Pilih buah segar, hindari makanan cepat saji, minum air 8 gelas.</p>
+            </div>
+            <div id="l1" class="tab-content">L: Live Aktif - Aksi: Olahraga 30 menit, yoga, gabung kelas.</div>
+            <div id="f" class="tab-content">F: Focus on Help - Aksi: Konsultasi dokter, bergabung komunitas.</div>
+            <div id="l2" class="tab-content">L: Listen to Your Body - Aksi: Catat siklus, istirahat jika lelah.</div>
+            <div id="o" class="tab-content">O: Overcome Stres - Aksi: Bernapas dalam, meditasi.</div>
+            <div id="v" class="tab-content">V: Value Your Sleep - Aksi: Tidur 7-9 jam, hindari gadget.</div>
+            <div id="e2" class="tab-content">E: Energize - Aksi: Campur olahraga dan diet.</div>
+            <button onclick="showModule('main-menu')">Kembali ke Menu Utama</button>
+        </section>
+        
+        <section id="tracker">
+            <h2>Tracker Harian</h2>
+            <form id="tracker-form">
+                <label><input type="checkbox" name="tracker" value="S"> S: Sayangi Tubuhmu</label><br>
+                <label><input type="checkbox" name="tracker" value="E1"> E: Eat Clean</label><br>
+                <label><input type="checkbox" name="tracker" value="L1"> L: Live Aktif</label><br>
+                <label><input type="checkbox" name="tracker" value="F"> F: Focus on Help</label><br>
+                <label><input type="checkbox" name="tracker" value="L2"> L: Listen to Your Body</label><br>
+                <label><input type="checkbox" name="tracker" value="O"> O: Overcome Stres</label><br>
+                <label><input type="checkbox" name="tracker" value="V"> V: Value Your Sleep</label><br>
+                <label><input type="checkbox" name="tracker" value="E2"> E: Energize</label><br>
+                <button type="button" onclick="saveTracker()">Simpan dan Hitung Persentase</button>
+            </form>
+            <div id="tracker-result">Persentase Self Love: 0%</div>
+            <button onclick="showModule('main-menu')">Kembali ke Menu Utama</button>
+        </section>
+        
+        <section id="bmi">
+            <h2>Perhitungan BMI</h2>
+            <form id="bmi-form">
+                <label for="weight">Berat Badan (kg):</label>
+                <input type="number" id="weight" required><br>
+                <label for="height">Tinggi Badan (cm):</label>
+                <input type="number" id="height" required><br>
+                <button type="button" onclick="calculateBMI()">Hitung</button>
+            </form>
+            <div id="bmi-result"></div>
+            <button onclick="showModule('main-menu')">Kembali ke Menu Utama</button>
+        </section>
+        
+        <section id="menu-makanan">
+            <h2>Contoh Menu Makanan Sehat</h2>
+            <p>Pilih variasi menu harian:</p>
+            <div class="menu-variation">
+                <button onclick="showMenu('menu1')">Menu 1</button>
+                <button onclick="showMenu('menu2')">Menu 2</button>
+                <button onclick="showMenu('menu3')">Menu 3</button>
+            </div>
+            <div id="menu1" class="menu-content active">
+                <h3>Menu 1</h3>
+                <p>Pagi: Oatmeal dengan buah.</p>
+                <p>Siang: Salad ayam.</p>
+                <p>Malam: Sup sayur.</p>
+            </div>
+            <div id="menu2" class="menu-content">
+                <h3>Menu 2</h3>
+                <p>Pagi: Telur dan susu.</p>
+                <p>Siang: Dada ayam dengan quinoa.</p>
+                <p>Malam: Ikan salmon.</p>
+            </div>
+            <div id="menu3" class="menu-content">
+                <h3>Menu 3</h3>
+                <p>Pagi: Smoothie buah.</p>
+                <p>Siang: Tahu dengan sayur.</p>
+                <p>Malam: Nasi merah dengan kacang.</p>
+            </div>
+            <button onclick="showModule('main-menu')">Kembali ke Menu Utama</button>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; Aplikasi Edukasi PCOS</p>
+    </footer>
+    
+    <script>
+        function showModule(moduleId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            if (moduleId) {
+                document.getElementById(moduleId).classList.add('active');
+            } else {
+                document.getElementById('main-menu').classList.add('active');
+            }
+        }
+        
+        function openTab(evt, tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            
+            const tabButtons = document.querySelectorAll('.tabs button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+            evt.currentTarget.classList.add('active');
+        }
+        
+        function saveTracker() {
+            const checkboxes = document.querySelectorAll('#tracker-form input[type="checkbox"]:checked');
+            const totalItems = 8;
+            const checkedItems = checkboxes.length;
+            const percentage = ((checkedItems / totalItems) * 100).toFixed(0);
+            document.getElementById('tracker-result').innerHTML = `Persentase Self Love: ${percentage}%`;
+        }
+        
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100;
+            if (!isNaN(weight) && !isNaN(height) && weight > 0 && height > 0) {
+                const bmi = (weight / (height * height)).toFixed(2);
+                let category = '';
+                if (bmi < 18.5) {
+                    category = 'Berat badan kurang (Underweight)';
+                } else if (bmi < 24.9) {
+                    category = 'Normal';
+                } else if (bmi < 29.9) {
+                    category = 'Kelebihan berat badan (Overweight)';
+                } else {
+                    category = 'Obesitas';
+                }
+                document.getElementById('bmi-result').innerHTML = `BMI Anda: ${bmi} - Kategori: ${category}`;
+            } else {
+                alert("Isi field dengan angka yang valid!");
+            }
+        }
+        
+        function showMenu(menuId) {
+            const contents = document.querySelectorAll('.menu-content');
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(menuId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
